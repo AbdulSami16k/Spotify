@@ -5,7 +5,7 @@ const App = () => {
   return (
     <View>
       <Text>Hello World</Text>
-      <AntDesign name="stepforward" size={40} color="red"/>
+      <AntDesign name="forward" size={40} color="red"/>
     </View>
   );
 }
