@@ -1,9 +1,10 @@
 import React from 'react';
-import { View, Text, FlatList, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, FlatList, Image, StyleSheet, TouchableOpacity, } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Songs from './Song.json';
 import { StackNavigationProp } from '@react-navigation/stack'; 
-
+import LinearGradient from 'react-native-linear-gradient';
+import {GestureHandlerRootView} from 'react-native-gesture-handler';
 const Explore = () => {
 
     type Song = {
@@ -21,12 +22,16 @@ const Explore = () => {
       navigation.navigate('Music', { item });
     };
   return (
+    <GestureHandlerRootView>     
+    <LinearGradient  colors={['darkgreen','black']}style={{height:'100%'}}>   
     <View style={styles.container}>
       <Text style={styles.header}>Explore</Text>
       <FlatList
         data={Songs}
         keyExtractor={(item) => item.id}
+        showsVerticalScrollIndicator={false}
         renderItem={({ item }) => (
+
           <TouchableOpacity onPress={() => handleImagePress(item)}>
             <View style={styles.itemContainer}>
               <Image source={{ uri: item.artwork }} style={styles.artwork} />
@@ -34,11 +39,14 @@ const Explore = () => {
                 <Text style={styles.title}>{item.title}</Text>
                 <Text style={styles.artist}>{item.artist}</Text>
               </View>
+              
             </View>
-          </TouchableOpacity>
+            </TouchableOpacity>
         )}
       />
     </View>
+    </LinearGradient> 
+        </GestureHandlerRootView> 
   );
 };
 
@@ -51,10 +59,14 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 16,
+    color:"white",
+    //textAlign:"center"
   },
   itemContainer: {
     flexDirection: 'row',
     marginBottom: 16,
+  //  backgroundColor:"red",
+   width:"50%",
   },
   artwork: {
     width: 50,
@@ -63,11 +75,13 @@ const styles = StyleSheet.create({
     marginRight: 16,
   },
   textContainer: {
-    flex: 1,
+ // backgroundColor:"blue",
+  flexDirection:"column"
   },
   title: {
     fontSize: 18,
     fontWeight: 'bold',
+  color:"white"
   },
   artist: {
     fontSize: 16,
