@@ -17,10 +17,14 @@ const Explore = () => {
 
       const navigation = useNavigation<StackNavigationProp<any, any>>();
 
-    const handleImagePress = (item:any) => {
-      // Navigate to the Music component, passing the selected item data
-      navigation.navigate('Music', { item });
-    };
+      const handleImagePress = (item: Song) => {
+        // Navigate to the Music component, passing the selected item data
+        navigation.navigate('Music', {
+          songTitle: item.title,
+          artist: item.artist,
+          artwork: item.artwork,
+        });
+      };
   return (
     <GestureHandlerRootView>     
     <LinearGradient  colors={['darkgreen','black']}style={{height:'100%'}}>   
