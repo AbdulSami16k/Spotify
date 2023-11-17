@@ -14,8 +14,9 @@ const Stack = createStackNavigator();
 const MusicStack: React.FC = () => {
   return (
     <Stack.Navigator>
+       <Stack.Screen name="Explore" component={Explore} options={{ headerShown: false }}/>
       <Stack.Screen name="Music" component={Music} options={{ headerShown: false }} />
-      <Stack.Screen name="Explore" component={Explore} options={{ headerShown: false }}/>
+     
     </Stack.Navigator>
   );
 };

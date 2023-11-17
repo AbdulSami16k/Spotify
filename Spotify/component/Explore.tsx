@@ -12,13 +12,12 @@ const Explore = () => {
         title: string;
         artist: string;
         artwork: string;
-        // Add other properties if needed
+        
       };
 
       const navigation = useNavigation<StackNavigationProp<any, any>>();
 
       const handleImagePress = (item: Song) => {
-        // Navigate to the Music component, passing the selected item data
         navigation.navigate('Music', {
           songTitle: item.title,
           artist: item.artist,
@@ -43,7 +42,6 @@ const Explore = () => {
                 <Text style={styles.title}>{item.title}</Text>
                 <Text style={styles.artist}>{item.artist}</Text>
               </View>
-              
             </View>
             </TouchableOpacity>
         )}
